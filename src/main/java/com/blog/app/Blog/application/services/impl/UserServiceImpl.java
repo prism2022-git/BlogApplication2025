@@ -51,14 +51,14 @@ public class UserServiceImpl implements UserService {
     public List<UserDTO> getAllUsers() {
         List<User> users = this.userRepo.findAll();
 
-       List<UserDTO>  usersDto = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
+        List<UserDTO>  usersDto = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
         return usersDto;
     }
 
     @Override
     public void deleteUser(Integer userID) {
         User user = this.userRepo.findById(userID).orElseThrow(()-> new ResourceNotFoundException("User","Id",userID));
-       this.userRepo.delete(user);
+        this.userRepo.delete(user);
     }
 
     // DTO to User conversion
