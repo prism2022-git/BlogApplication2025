@@ -26,14 +26,14 @@ public class CategoryController {
     }
 
     @PutMapping("/{catId}")
-    public ResponseEntity<CategoryDTO> updateUser(@RequestBody CategoryDTO categoryDTO,@PathVariable("catId") Integer uid){
-        CategoryDTO updateCategory = this.categoryService.updateCategory(categoryDTO,uid);
+    public ResponseEntity<CategoryDTO> updateUser(@RequestBody CategoryDTO categoryDTO,@PathVariable("catId") Integer catId){
+        CategoryDTO updateCategory = this.categoryService.updateCategory(categoryDTO,catId);
         return ResponseEntity.ok(updateCategory);
     }
 
     @DeleteMapping("/{catId}")
-    public ResponseEntity<ApiResponse> deleteUser(@PathVariable("catId") Integer uid){
-        this.categoryService.deleteCategory(uid);
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable("catId") Integer catId){
+        this.categoryService.deleteCategory(catId);
         // return new ResponseEntity<ApiResponse>(new ApiResponse("User Deleted successfully",true),HttpStatus.OK);
         return new ResponseEntity(Map.of("Message","Category deleted Successfully"),HttpStatus.OK);
     }
