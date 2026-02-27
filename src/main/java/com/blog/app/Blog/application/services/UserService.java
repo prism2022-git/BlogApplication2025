@@ -7,6 +7,7 @@ import java.util.List;
 public interface UserService {
 
     // create user
+    UserDTO registerNewUser(UserDTO user);
     UserDTO createUser(UserDTO user);
     UserDTO updateUser(UserDTO user, Integer userID);
     UserDTO getUserById(Integer userID);          // this is to fetch the single user
